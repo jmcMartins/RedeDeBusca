@@ -1,0 +1,1 @@
+Trabalho e baseado em rede de busca, usando Inteligencia Artificial. Será feito um jogo chamado quebra cuca(jogo já existente). Onde o sistema ira gerar um jogo 3x3 aleatorio, e ira se resolver sozinho ou o maximo que for possivel de calcular jogadas perfeitas.
