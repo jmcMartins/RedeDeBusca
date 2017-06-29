@@ -19,7 +19,7 @@ public class No
 	
 	public void print()
 	{
-		System.out.println("Nivel: "+ this.nivel + " | No: " + this.id + " | Heuristica: ");
+		System.out.println("Nivel: "+ this.nivel + " | No: " + this.id + " | Heuristica: " + this.retornaHeuristica() + "%");
 		for (int i = 0; i < filhotes.size(); i++) {
 			System.out.print(filhotes.get(i)+" ");
 			if((i+1) % 3 == 0)
@@ -39,8 +39,11 @@ public class No
 		this.jogar("cima");
 		this.jogar("baixo");
 		NIVEL++;
+		this.organizar();
+		if(Main.melhor.retornaHeuristica() < this.filhos.get(0).retornaHeuristica())
+			Main.melhor = this.filhos.get(0);
 		
-		if((this.nivel+1) < 15)
+		if((this.nivel+1) < 2)
 		{
 			for (int i = 0; i < filhos.size(); i++) {
 				filhos.get(i).criarFilhos();
@@ -125,12 +128,11 @@ public class No
 	public float retornaHeuristica()
 	{
 		int acertos = 0;
-		for (int i = 0; i < 9; i++) {
+		for (int i = 0; i < filhotes.size(); i++) {
 			if(this.filhotes.get(i) == (i+1))
 				acertos++;
 		}
-		float resul = acertos/8;
-		return (resul);
+		return (100 * acertos) / 8;
 	}
 	
 	
