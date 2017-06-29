@@ -6,11 +6,11 @@ import iftm.ia.No;
 public class No 
 {
 	public ArrayList<No> filhos = new ArrayList<No>();
-	public static int NIVEL = 0;
-	public static int NOS = 0;
 	public ArrayList<Integer> filhotes = new ArrayList<Integer>();
-	public int id = 0;
-	public int nivel = 0;
+	
+	public static int NOS = 1, NIVEL = 0;
+	
+	public int id = 0, nivel = 0;
 	
 	public No() 
 	{
@@ -19,7 +19,7 @@ public class No
 	
 	public void print()
 	{
-		System.out.println("No: " + this.id + " Nivel: "+ this.nivel);
+		System.out.println("Nivel: "+ this.nivel + " | No: " + this.id + " | Heuristica: ");
 		for (int i = 0; i < filhotes.size(); i++) {
 			System.out.print(filhotes.get(i)+" ");
 			if((i+1) % 3 == 0)
@@ -119,6 +119,33 @@ public class No
 				}
 				
 				break;
+		}
+	}
+	
+	public float retornaHeuristica()
+	{
+		int acertos = 0;
+		for (int i = 0; i < 9; i++) {
+			if(this.filhotes.get(i) == (i+1))
+				acertos++;
+		}
+		float resul = acertos/8;
+		return (resul);
+	}
+	
+	
+	public void organizar() 
+	{
+		No filhote;
+		for (int i = 0; i < this.filhos.size(); i++) {
+			for (int j = (i+1); j < this.filhos.size(); j++) {
+				if(this.filhos.get(i).retornaHeuristica() < this.filhos.get(j).retornaHeuristica()) 
+				{
+					filhote = this.filhos.get(i);
+					this.filhos.set(i, this.filhos.get(j));
+					this.filhos.set(j, filhote);
+				}
+			}
 		}
 	}
 	

@@ -6,12 +6,12 @@ import java.util.Collections;
 
 public class Main {
 
-	public static void main(String[] args) {
-		
-		Integer[] tabuleiro = {0,1,2,3,4,5,6,7,8};
+	public static void main(String[] args) 
+	{	
+		Integer[] tabuleiro = {0, 1, 2, 3, 4, 5, 6, 7, 8};
 		ArrayList<Integer> array = new ArrayList<Integer>(Arrays.asList(tabuleiro));
 		
-		Collections.shuffle(array);
+		Collections.shuffle(array); //Bagunça array.
 		
 		No arvore = new No();
 		
@@ -22,7 +22,6 @@ public class Main {
 		arvore.criarFilhos();
 		
 		arvore.print();
-
+		
 	}
-
 }
