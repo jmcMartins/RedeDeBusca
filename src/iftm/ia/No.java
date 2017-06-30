@@ -43,7 +43,7 @@ public class No
 		if(Main.melhor.retornaHeuristica() < this.filhos.get(0).retornaHeuristica())
 			Main.melhor = this.filhos.get(0);
 		
-		if((this.nivel+1) < 2)
+		if((this.nivel+1) < Main.NivelPrograma)
 		{
 			for (int i = 0; i < filhos.size(); i++) {
 				filhos.get(i).criarFilhos();
@@ -140,7 +140,8 @@ public class No
 	{
 		No filhote;
 		for (int i = 0; i < this.filhos.size(); i++) {
-			for (int j = (i+1); j < this.filhos.size(); j++) {
+			for (int j = (i+1); j < this.filhos.size(); j++) 
+			{
 				if(this.filhos.get(i).retornaHeuristica() < this.filhos.get(j).retornaHeuristica()) 
 				{
 					filhote = this.filhos.get(i);

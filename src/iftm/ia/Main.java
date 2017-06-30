@@ -6,6 +6,7 @@ import java.util.Collections;
 
 public class Main {
 	public static No melhor = null;
+	public static int NivelPrograma = 15;
 	
 	public static void main(String[] args) 
 	{	
